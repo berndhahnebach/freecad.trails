@@ -63,47 +63,6 @@ def import_csv(fn, orig, datatext = None):
 	FreeCADGui.SendMsgToActiveView("ViewFit")
 
 
-s6 = '''
-MainWindow:
-	VerticalLayout:
-		id:'main'
-
-		QtGui.QLabel:
-			setText:"***   I M P O R T    CSV   GEODATA   ***"
-		QtGui.QLabel:
-
-		QtGui.QLabel:
-			setText:"Data input filename"
-
-		QtGui.QLineEdit:
-			setText:"Select *.csv file"
-			id: 'bl'
-
-		QtGui.QPushButton:
-			setText: "Get CSV File Name"
-			clicked.connect: app.getfn
-
-		QtGui.QLabel:
-			setText:"direct Data input  "
-
-
-		QtGui.QTextEdit:
-			setText:""
-			id: 'data'
-
-		QtGui.QLabel:
-			setText:"Origin (lat,lon) "
-
-
-		QtGui.QLineEdit:
-			setText:"50.3729107,11.1913920"
-			id: 'orig'
-
-		QtGui.QPushButton:
-			setText: "Run values"
-			clicked.connect: app.run
-
-'''
 
 
 class MyApp(object):
@@ -130,6 +89,7 @@ def mydialog():
 	app = MyApp()
 
 	from freecad.trails.geomatics.guigeoimport import miki
+	from freecad.trails.geomatics.guigeoimport.miki_import_csv import s6
 
 	miki = miki.Miki()
 	miki.app = app
